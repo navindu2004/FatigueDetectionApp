@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		EE739FAD2E2EA4990094E4FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE739F932E2EA4970094E4FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE739F9A2E2EA4970094E4FE;
+			remoteInfo = FatigueDetector;
+		};
+		EE739FB72E2EA4990094E4FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE739F932E2EA4970094E4FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE739F9A2E2EA4970094E4FE;
+			remoteInfo = FatigueDetector;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE739F9B2E2EA4970094E4FE /* FatigueDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FatigueDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE739FAC2E2EA4990094E4FE /* FatigueDetectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FatigueDetectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE739FB62E2EA4990094E4FE /* FatigueDetectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FatigueDetectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EE739FBE2E2EA4990094E4FE /* Exceptions for "FatigueDetector" folder in "FatigueDetector" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EE739F9A2E2EA4970094E4FE /* FatigueDetector */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EE739F9D2E2EA4970094E4FE /* FatigueDetector */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EE739FBE2E2EA4990094E4FE /* Exceptions for "FatigueDetector" folder in "FatigueDetector" target */,
+			);
+			path = FatigueDetector;
+			sourceTree = "<group>";
+		};
+		EE739FAF2E2EA4990094E4FE /* FatigueDetectorTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FatigueDetectorTests;
+			sourceTree = "<group>";
+		};
+		EE739FB92E2EA4990094E4FE /* FatigueDetectorUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FatigueDetectorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE739F982E2EA4970094E4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FA92E2EA4990094E4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FB32E2EA4990094E4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE739F922E2EA4970094E4FE = {
+			isa = PBXGroup;
+			children = (
+				EE739F9D2E2EA4970094E4FE /* FatigueDetector */,
+				EE739FAF2E2EA4990094E4FE /* FatigueDetectorTests */,
+				EE739FB92E2EA4990094E4FE /* FatigueDetectorUITests */,
+				EE739F9C2E2EA4970094E4FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE739F9C2E2EA4970094E4FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE739F9B2E2EA4970094E4FE /* FatigueDetector.app */,
+				EE739FAC2E2EA4990094E4FE /* FatigueDetectorTests.xctest */,
+				EE739FB62E2EA4990094E4FE /* FatigueDetectorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE739F9A2E2EA4970094E4FE /* FatigueDetector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE739FBF2E2EA4990094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetector" */;
+			buildPhases = (
+				EE739F972E2EA4970094E4FE /* Sources */,
+				EE739F982E2EA4970094E4FE /* Frameworks */,
+				EE739F992E2EA4970094E4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EE739F9D2E2EA4970094E4FE /* FatigueDetector */,
+			);
+			name = FatigueDetector;
+			packageProductDependencies = (
+			);
+			productName = FatigueDetector;
+			productReference = EE739F9B2E2EA4970094E4FE /* FatigueDetector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE739FAB2E2EA4990094E4FE /* FatigueDetectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE739FC42E2EA4990094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorTests" */;
+			buildPhases = (
+				EE739FA82E2EA4990094E4FE /* Sources */,
+				EE739FA92E2EA4990094E4FE /* Frameworks */,
+				EE739FAA2E2EA4990094E4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE739FAE2E2EA4990094E4FE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EE739FAF2E2EA4990094E4FE /* FatigueDetectorTests */,
+			);
+			name = FatigueDetectorTests;
+			packageProductDependencies = (
+			);
+			productName = FatigueDetectorTests;
+			productReference = EE739FAC2E2EA4990094E4FE /* FatigueDetectorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE739FB52E2EA4990094E4FE /* FatigueDetectorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE739FC72E2EA4990094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorUITests" */;
+			buildPhases = (
+				EE739FB22E2EA4990094E4FE /* Sources */,
+				EE739FB32E2EA4990094E4FE /* Frameworks */,
+				EE739FB42E2EA4990094E4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE739FB82E2EA4990094E4FE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EE739FB92E2EA4990094E4FE /* FatigueDetectorUITests */,
+			);
+			name = FatigueDetectorUITests;
+			packageProductDependencies = (
+			);
+			productName = FatigueDetectorUITests;
+			productReference = EE739FB62E2EA4990094E4FE /* FatigueDetectorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE739F932E2EA4970094E4FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					EE739F9A2E2EA4970094E4FE = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					EE739FAB2E2EA4990094E4FE = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = EE739F9A2E2EA4970094E4FE;
+					};
+					EE739FB52E2EA4990094E4FE = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = EE739F9A2E2EA4970094E4FE;
+					};
+				};
+			};
+			buildConfigurationList = EE739F962E2EA4970094E4FE /* Build configuration list for PBXProject "FatigueDetector" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE739F922E2EA4970094E4FE;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EE739F9C2E2EA4970094E4FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE739F9A2E2EA4970094E4FE /* FatigueDetector */,
+				EE739FAB2E2EA4990094E4FE /* FatigueDetectorTests */,
+				EE739FB52E2EA4990094E4FE /* FatigueDetectorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE739F992E2EA4970094E4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FAA2E2EA4990094E4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FB42E2EA4990094E4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE739F972E2EA4970094E4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FA82E2EA4990094E4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FB22E2EA4990094E4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE739FAE2E2EA4990094E4FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE739F9A2E2EA4970094E4FE /* FatigueDetector */;
+			targetProxy = EE739FAD2E2EA4990094E4FE /* PBXContainerItemProxy */;
+		};
+		EE739FB82E2EA4990094E4FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE739F9A2E2EA4970094E4FE /* FatigueDetector */;
+			targetProxy = EE739FB72E2EA4990094E4FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EE739FC02E2EA4990094E4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FatigueDetector/FatigueDetector.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FatigueDetector/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FYP.FatigueDetector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE739FC12E2EA4990094E4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FatigueDetector/FatigueDetector.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FatigueDetector/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FYP.FatigueDetector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EE739FC22E2EA4990094E4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE739FC32E2EA4990094E4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE739FC52E2EA4990094E4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FYP.FatigueDetectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FatigueDetector.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FatigueDetector";
+			};
+			name = Debug;
+		};
+		EE739FC62E2EA4990094E4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FYP.FatigueDetectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FatigueDetector.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FatigueDetector";
+			};
+			name = Release;
+		};
+		EE739FC82E2EA4990094E4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FYP.FatigueDetectorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FatigueDetector;
+			};
+			name = Debug;
+		};
+		EE739FC92E2EA4990094E4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FYP.FatigueDetectorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FatigueDetector;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE739F962E2EA4970094E4FE /* Build configuration list for PBXProject "FatigueDetector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE739FC22E2EA4990094E4FE /* Debug */,
+				EE739FC32E2EA4990094E4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE739FBF2E2EA4990094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE739FC02E2EA4990094E4FE /* Debug */,
+				EE739FC12E2EA4990094E4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE739FC42E2EA4990094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE739FC52E2EA4990094E4FE /* Debug */,
+				EE739FC62E2EA4990094E4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE739FC72E2EA4990094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE739FC82E2EA4990094E4FE /* Debug */,
+				EE739FC92E2EA4990094E4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE739F932E2EA4970094E4FE /* Project object */;
+}
