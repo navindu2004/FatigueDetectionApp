@@ -1,24 +1,17 @@
-//
-//  ContentView.swift
-//  FatigueDetectorWatchApp Watch App
-//
-//  Created by Navindu Premaratne on 2025-07-21.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var ecgManager = ECGManager()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Latest ECG:")
+                .font(.headline)
+            Text(ecgManager.latestClassification)
+                .foregroundColor(.blue)
+            Button("Refresh ECG") {
+                ecgManager.fetchLatestECG()
+            }
         }
-        .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }

@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EE739FEE2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EE739FCE2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EE739FFB2E2EAA740094E4FE /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */; };
+		EE739FFD2E2EAA870094E4FE /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE739FFC2E2EAA870094E4FE /* WatchConnectivity.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EE739FAD2E2EA4990094E4FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,12 +27,52 @@
 			remoteGlobalIDString = EE739F9A2E2EA4970094E4FE;
 			remoteInfo = FatigueDetector;
 		};
+		EE739FDB2E2EA57D0094E4FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE739F932E2EA4970094E4FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE739FCD2E2EA57B0094E4FE;
+			remoteInfo = "FatigueDetectorWatchApp Watch App";
+		};
+		EE739FE52E2EA57D0094E4FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE739F932E2EA4970094E4FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE739FCD2E2EA57B0094E4FE;
+			remoteInfo = "FatigueDetectorWatchApp Watch App";
+		};
+		EE739FEC2E2EA57D0094E4FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE739F932E2EA4970094E4FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE739FCD2E2EA57B0094E4FE;
+			remoteInfo = "FatigueDetectorWatchApp Watch App";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE739FF22E2EA57D0094E4FE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EE739FEE2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EE739F9B2E2EA4970094E4FE /* FatigueDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FatigueDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE739FAC2E2EA4990094E4FE /* FatigueDetectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FatigueDetectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE739FB62E2EA4990094E4FE /* FatigueDetectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FatigueDetectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE739FCE2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FatigueDetectorWatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE739FDA2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FatigueDetectorWatchApp Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE739FE42E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FatigueDetectorWatchApp Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		EE739FFC2E2EAA870094E4FE /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS11.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +82,13 @@
 				Info.plist,
 			);
 			target = EE739F9A2E2EA4970094E4FE /* FatigueDetector */;
+		};
+		EE73A01E2E2EC4A50094E4FE /* Exceptions for "FatigueDetectorWatchApp Watch App" folder in "FatigueDetectorWatchApp Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -58,6 +111,24 @@
 			path = FatigueDetectorUITests;
 			sourceTree = "<group>";
 		};
+		EE739FCF2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EE73A01E2E2EC4A50094E4FE /* Exceptions for "FatigueDetectorWatchApp Watch App" folder in "FatigueDetectorWatchApp Watch App" target */,
+			);
+			path = "FatigueDetectorWatchApp Watch App";
+			sourceTree = "<group>";
+		};
+		EE739FDD2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "FatigueDetectorWatchApp Watch AppTests";
+			sourceTree = "<group>";
+		};
+		EE739FE72E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "FatigueDetectorWatchApp Watch AppUITests";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE739FFB2E2EAA740094E4FE /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +154,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EE739FCB2E2EA57B0094E4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE739FFD2E2EAA870094E4FE /* WatchConnectivity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FD72E2EA57D0094E4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FE12E2EA57D0094E4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,6 +185,10 @@
 				EE739F9D2E2EA4970094E4FE /* FatigueDetector */,
 				EE739FAF2E2EA4990094E4FE /* FatigueDetectorTests */,
 				EE739FB92E2EA4990094E4FE /* FatigueDetectorUITests */,
+				EE739FCF2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */,
+				EE739FDD2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppTests */,
+				EE739FE72E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests */,
+				EE739FF92E2EAA740094E4FE /* Frameworks */,
 				EE739F9C2E2EA4970094E4FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,8 +199,20 @@
 				EE739F9B2E2EA4970094E4FE /* FatigueDetector.app */,
 				EE739FAC2E2EA4990094E4FE /* FatigueDetectorTests.xctest */,
 				EE739FB62E2EA4990094E4FE /* FatigueDetectorUITests.xctest */,
+				EE739FCE2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App.app */,
+				EE739FDA2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppTests.xctest */,
+				EE739FE42E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EE739FF92E2EAA740094E4FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE739FFC2E2EAA870094E4FE /* WatchConnectivity.framework */,
+				EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,10 +225,12 @@
 				EE739F972E2EA4970094E4FE /* Sources */,
 				EE739F982E2EA4970094E4FE /* Frameworks */,
 				EE739F992E2EA4970094E4FE /* Resources */,
+				EE739FF22E2EA57D0094E4FE /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EE739FED2E2EA57D0094E4FE /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				EE739F9D2E2EA4970094E4FE /* FatigueDetector */,
@@ -176,6 +288,74 @@
 			productReference = EE739FB62E2EA4990094E4FE /* FatigueDetectorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE739FEF2E2EA57D0094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorWatchApp Watch App" */;
+			buildPhases = (
+				EE739FCA2E2EA57B0094E4FE /* Sources */,
+				EE739FCB2E2EA57B0094E4FE /* Frameworks */,
+				EE739FCC2E2EA57B0094E4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EE739FCF2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */,
+			);
+			name = "FatigueDetectorWatchApp Watch App";
+			packageProductDependencies = (
+			);
+			productName = "FatigueDetectorWatchApp Watch App";
+			productReference = EE739FCE2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE739FD92E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE739FF32E2EA57D0094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorWatchApp Watch AppTests" */;
+			buildPhases = (
+				EE739FD62E2EA57D0094E4FE /* Sources */,
+				EE739FD72E2EA57D0094E4FE /* Frameworks */,
+				EE739FD82E2EA57D0094E4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE739FDC2E2EA57D0094E4FE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EE739FDD2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppTests */,
+			);
+			name = "FatigueDetectorWatchApp Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "FatigueDetectorWatchApp Watch AppTests";
+			productReference = EE739FDA2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE739FE32E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE739FF62E2EA57D0094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorWatchApp Watch AppUITests" */;
+			buildPhases = (
+				EE739FE02E2EA57D0094E4FE /* Sources */,
+				EE739FE12E2EA57D0094E4FE /* Frameworks */,
+				EE739FE22E2EA57D0094E4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE739FE62E2EA57D0094E4FE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EE739FE72E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests */,
+			);
+			name = "FatigueDetectorWatchApp Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "FatigueDetectorWatchApp Watch AppUITests";
+			productReference = EE739FE42E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,6 +377,17 @@
 						CreatedOnToolsVersion = 16.3;
 						TestTargetID = EE739F9A2E2EA4970094E4FE;
 					};
+					EE739FCD2E2EA57B0094E4FE = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					EE739FD92E2EA57D0094E4FE = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = EE739FCD2E2EA57B0094E4FE;
+					};
+					EE739FE32E2EA57D0094E4FE = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = EE739FCD2E2EA57B0094E4FE;
+					};
 				};
 			};
 			buildConfigurationList = EE739F962E2EA4970094E4FE /* Build configuration list for PBXProject "FatigueDetector" */;
@@ -216,6 +407,9 @@
 				EE739F9A2E2EA4970094E4FE /* FatigueDetector */,
 				EE739FAB2E2EA4990094E4FE /* FatigueDetectorTests */,
 				EE739FB52E2EA4990094E4FE /* FatigueDetectorUITests */,
+				EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */,
+				EE739FD92E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppTests */,
+				EE739FE32E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +430,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EE739FB42E2EA4990094E4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FCC2E2EA57B0094E4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FD82E2EA57D0094E4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FE22E2EA57D0094E4FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,6 +481,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EE739FCA2E2EA57B0094E4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FD62E2EA57D0094E4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE739FE02E2EA57D0094E4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -278,6 +514,21 @@
 			isa = PBXTargetDependency;
 			target = EE739F9A2E2EA4970094E4FE /* FatigueDetector */;
 			targetProxy = EE739FB72E2EA4990094E4FE /* PBXContainerItemProxy */;
+		};
+		EE739FDC2E2EA57D0094E4FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */;
+			targetProxy = EE739FDB2E2EA57D0094E4FE /* PBXContainerItemProxy */;
+		};
+		EE739FE62E2EA57D0094E4FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */;
+			targetProxy = EE739FE52E2EA57D0094E4FE /* PBXContainerItemProxy */;
+		};
+		EE739FED2E2EA57D0094E4FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */;
+			targetProxy = EE739FEC2E2EA57D0094E4FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -535,6 +786,144 @@
 			};
 			name = Release;
 		};
+		EE739FF02E2EA57D0094E4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FatigueDetectorWatchApp Watch App/FatigueDetectorWatchApp Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FatigueDetectorWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = FYP.FatigueDetector;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FYP.FatigueDetector.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		EE739FF12E2EA57D0094E4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FatigueDetectorWatchApp Watch App/FatigueDetectorWatchApp Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FatigueDetectorWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = FYP.FatigueDetector;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FYP.FatigueDetector.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		EE739FF42E2EA57D0094E4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FYP.FatigueDetectorWatchApp-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FatigueDetectorWatchApp Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FatigueDetectorWatchApp Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		EE739FF52E2EA57D0094E4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FYP.FatigueDetectorWatchApp-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FatigueDetectorWatchApp Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FatigueDetectorWatchApp Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		EE739FF72E2EA57D0094E4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FYP.FatigueDetectorWatchApp-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "FatigueDetectorWatchApp Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		EE739FF82E2EA57D0094E4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HHC8HPRV6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FYP.FatigueDetectorWatchApp-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "FatigueDetectorWatchApp Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -570,6 +959,33 @@
 			buildConfigurations = (
 				EE739FC82E2EA4990094E4FE /* Debug */,
 				EE739FC92E2EA4990094E4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE739FEF2E2EA57D0094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorWatchApp Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE739FF02E2EA57D0094E4FE /* Debug */,
+				EE739FF12E2EA57D0094E4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE739FF32E2EA57D0094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorWatchApp Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE739FF42E2EA57D0094E4FE /* Debug */,
+				EE739FF52E2EA57D0094E4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE739FF62E2EA57D0094E4FE /* Build configuration list for PBXNativeTarget "FatigueDetectorWatchApp Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE739FF72E2EA57D0094E4FE /* Debug */,
+				EE739FF82E2EA57D0094E4FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
