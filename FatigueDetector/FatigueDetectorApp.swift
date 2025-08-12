@@ -6,27 +6,41 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct FatigueDetectorApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // This is the root view of our application
+            MainTabView()
         }
-        .modelContainer(sharedModelContainer)
+    }
+}
+
+
+// We will create a new file for this view next
+struct MainTabView: View {
+    var body: some View {
+        TabView {
+            // --- Dashboard Tab ---
+            FatigueDashboardView()
+                .tabItem {
+                    Label("Dashboard", systemImage: "chart.bar.xaxis")
+                }
+
+            // --- Reports Tab ---
+            ReportsView()
+                .tabItem {
+                    Label("Reports", systemImage: "doc.text.fill")
+                }
+
+            // --- Settings Tab ---
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape.fill")
+                }
+        }
+        // Apply a dark color scheme to match your mockups
+        .preferredColorScheme(.dark)
     }
 }

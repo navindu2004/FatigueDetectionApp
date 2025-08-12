@@ -1,7 +1,15 @@
-//
-//  ReportsView.swift
-//  FatigueDetector
-//
-//  Created by Navindu Premaratne on 2025-07-21.
-//
+import SwiftUI
 
+struct ReportsView: View {
+    var body: some View {
+        NavigationView {
+            Text("Reports will be shown here.")
+                .navigationTitle("Reports")
+        }
+    }
+}
+
+#Preview {
+    ReportsView()
+        .preferredColorScheme(.dark)
+}
