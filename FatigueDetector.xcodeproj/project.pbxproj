@@ -10,6 +10,10 @@
 		EE739FEE2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EE739FCE2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EE739FFB2E2EAA740094E4FE /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */; };
 		EE739FFD2E2EAA870094E4FE /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE739FFC2E2EAA870094E4FE /* WatchConnectivity.framework */; };
+		EEA64B532E4C822800486716 /* ECGHealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */; };
+		EEA64B652E4CA18900486716 /* ECGHealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */; };
+		EEA64B672E4CCEAE00486716 /* FatigueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA64B662E4CCEAE00486716 /* FatigueState.swift */; };
+		EEA64B682E4CCEAE00486716 /* FatigueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA64B662E4CCEAE00486716 /* FatigueState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,8 @@
 		EE739FE42E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FatigueDetectorWatchApp Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		EE739FFC2E2EAA870094E4FE /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS11.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGHealthKitManager.swift; sourceTree = "<group>"; };
+		EEA64B662E4CCEAE00486716 /* FatigueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatigueState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -90,6 +96,13 @@
 			);
 			target = EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */;
 		};
+		EEA64B6E2E4CEEEB00486716 /* Exceptions for "FatigueDetector" folder in "FatigueDetectorWatchApp Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WorkoutManager.swift,
+			);
+			target = EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -97,6 +110,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				EE739FBE2E2EA4990094E4FE /* Exceptions for "FatigueDetector" folder in "FatigueDetector" target */,
+				EEA64B6E2E4CEEEB00486716 /* Exceptions for "FatigueDetector" folder in "FatigueDetectorWatchApp Watch App" target */,
 			);
 			path = FatigueDetector;
 			sourceTree = "<group>";
@@ -182,6 +196,7 @@
 		EE739F922E2EA4970094E4FE = {
 			isa = PBXGroup;
 			children = (
+				EEA64B642E4CA15B00486716 /* Shared */,
 				EE739F9D2E2EA4970094E4FE /* FatigueDetector */,
 				EE739FAF2E2EA4990094E4FE /* FatigueDetectorTests */,
 				EE739FB92E2EA4990094E4FE /* FatigueDetectorUITests */,
@@ -213,6 +228,15 @@
 				EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEA64B642E4CA15B00486716 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */,
+				EEA64B662E4CCEAE00486716 /* FatigueState.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +488,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEA64B652E4CA18900486716 /* ECGHealthKitManager.swift in Sources */,
+				EEA64B682E4CCEAE00486716 /* FatigueState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +511,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEA64B532E4C822800486716 /* ECGHealthKitManager.swift in Sources */,
+				EEA64B672E4CCEAE00486716 /* FatigueState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,11 +573,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FatigueDetector/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to ECG data to monitor your fatigue levels.\n";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to read ECG signals to monitor fatigue in real time.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,11 +606,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FatigueDetector/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to ECG data to monitor your fatigue levels.\n";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to read ECG signals to monitor fatigue in real time.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -812,7 +846,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
 		};
@@ -842,7 +876,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};

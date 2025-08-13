@@ -9,38 +9,37 @@ import SwiftUI
 
 @main
 struct FatigueDetectorApp: App {
+    // Create a single, shared instance of the DashboardViewModel.
+    // @StateObject ensures it stays alive for the entire lifecycle of the app.
+    @StateObject private var dashboardViewModel = DashboardViewModel()
+
     var body: some Scene {
         WindowGroup {
-            // This is the root view of our application
             MainTabView()
+                // Make the shared ViewModel available to all sub-views.
+                .environmentObject(dashboardViewModel)
         }
     }
 }
 
-
-// We will create a new file for this view next
 struct MainTabView: View {
     var body: some View {
         TabView {
-            // --- Dashboard Tab ---
             FatigueDashboardView()
                 .tabItem {
                     Label("Dashboard", systemImage: "chart.bar.xaxis")
                 }
-
-            // --- Reports Tab ---
+            
             ReportsView()
                 .tabItem {
                     Label("Reports", systemImage: "doc.text.fill")
                 }
-
-            // --- Settings Tab ---
+            
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }
         }
-        // Apply a dark color scheme to match your mockups
         .preferredColorScheme(.dark)
     }
 }

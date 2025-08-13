@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string>This app uses your ECG data to monitor driver fatigue levels in real time.</string>
+	<string>This app uses your ECG data to monitor driver fatigue levels in real time</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>We need to read ECG signals to monitor fatigue in real time.</string>
+	<string>We need to read ECG signals to monitor fatigue in real time</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

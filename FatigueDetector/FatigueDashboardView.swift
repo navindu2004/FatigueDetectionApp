@@ -9,17 +9,16 @@ import SwiftUI
 import Charts
 
 struct FatigueDashboardView: View {
-    // --- Create and Observe the ViewModel ---
-    // @StateObject tells SwiftUI that this view OWNS the ViewModel.
-    // It will be created once and kept alive for the lifetime of the view.
-    @StateObject private var viewModel = DashboardViewModel()
+    // --- Connect to the Shared ViewModel ---
+    // @EnvironmentObject tells this view to find the DashboardViewModel
+    // that was placed into the environment by the FatigueDetectorApp.
+    @EnvironmentObject var viewModel: DashboardViewModel
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
                     // --- Top Status Indicators ---
-                    // These views now read their data directly from the ViewModel.
                     HStack(spacing: 16) {
                         StatusIndicatorView(
                             title: "WATCH CONNECTION",
@@ -38,47 +37,38 @@ struct FatigueDashboardView: View {
                     CardView {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("CURRENT FATIGUE LEVEL")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                            
+                                .font(.caption).foregroundColor(.secondary)
                             HStack {
                                 Circle()
                                     .fill(viewModel.fatigueLevel.displayColor)
                                     .frame(width: 10, height: 10)
                                 Text(viewModel.fatigueLevel.displayText)
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
+                                    .font(.title3).fontWeight(.semibold)
                                     .foregroundColor(viewModel.fatigueLevel.displayColor)
                             }
                         }
                     }
                     
-                    // --- ECG Data Chart ---
+                    // --- Charts and System Details ---
                     ChartCardView(
                         title: "ECG Data (from Watch)",
                         data: viewModel.ecgDataPoints,
                         lineColor: .red
                     )
                     
-                    // --- EEG Data Chart ---
                     ChartCardView(
                         title: "Simulated EEG Data (from Wheel)",
                         data: viewModel.eegDataPoints,
                         lineColor: .blue
                     )
                     
-                    // --- System Details ---
                     CardView {
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("SYSTEM DETAILS")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
+                            Text("SYSTEM DETAILS").font(.caption).foregroundColor(.secondary)
                             Text("An XGBoost model analyzes ECG (Watch) and EEG (Steering Wheel) data to calculate a fatigue score and determine the driver's state.")
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
+                                .font(.footnote).foregroundColor(.secondary)
                         }
                     }
-
                 }
                 .padding()
             }
@@ -89,7 +79,7 @@ struct FatigueDashboardView: View {
 }
 
 
-// --- Reusable Sub-views (No changes needed here) ---
+// --- Reusable Sub-views (These remain the same) ---
 
 struct CardView<Content: View>: View {
     let content: Content
@@ -154,7 +144,6 @@ struct LineChartView: View {
     let data: [Double]
     let lineColor: Color
     
-    // This logic ensures the chart doesn't crash if there's no data or a flat line
     private var normalizedData: [CGFloat] {
         let maxVal = data.max() ?? 1.0
         let minVal = data.min() ?? 0.0
@@ -183,6 +172,9 @@ struct LineChartView: View {
 }
 
 #Preview {
-    MainTabView()
+    // For the preview to work correctly with an @EnvironmentObject,
+    // you must provide a sample instance for the preview to use.
+    FatigueDashboardView()
+        .environmentObject(DashboardViewModel())
         .preferredColorScheme(.dark)
 }

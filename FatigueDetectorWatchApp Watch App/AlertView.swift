@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AlertView: View {
-    // This view also observes the same ViewModel.
-    @ObservedObject var viewModel: WatchViewModel
+    // Get the shared ViewModel from the environment
+    @EnvironmentObject var viewModel: WatchViewModel
     
     var body: some View {
         ZStack {
@@ -46,4 +46,10 @@ struct AlertView: View {
             .padding()
         }
     }
+}
+
+#Preview {
+    // Provide a sample ViewModel for the preview
+    AlertView()
+        .environmentObject(WatchViewModel())
 }
