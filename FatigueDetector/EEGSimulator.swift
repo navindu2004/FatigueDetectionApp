@@ -1,51 +1,58 @@
-//
-//  EEGSimulator.swift
-//  FatigueDetector
-//
-//  Created by Navindu Premaratne on 2025-08-12.
-//
-
 import Foundation
 import Combine
 
+// Helper function to generate normally distributed random numbers
+private func randomNormal(mean: Double, std: Double) -> Double {
+    let u1 = Double.random(in: 0...1)
+    let u2 = Double.random(in: 0...1)
+    let z = sqrt(-2 * log(u1)) * cos(2 * .pi * u2)
+    return z * std + mean
+}
+
 class EEGSimulator: ObservableObject {
-    
-    // @Published property so the ViewModel can subscribe to its changes.
-    @Published var eegData: Double = 0.0
+    // This will publish the full dictionary of features for the model
+    @Published var eegFeatures: [String: Double] = [:]
+    // This will publish a single value for the UI chart
+    @Published var eegChartValue: Double = 0.0
     
     private var timer: Timer?
-    private var currentValue: Double = 0.5 // Start in the middle of the range
+    private var simulateFatigue = false
+
+    // Golden fingerprint values for EEG (Poz)
+    private let awakeTargetMean: Double = 0.0004
+    private let awakeTargetStd: Double = 0.4502
+    private let fatiguedTargetMean: Double = 0.0035
+    private let fatiguedTargetStd: Double = 0.2315
     
-    /// Starts generating simulated EEG data.
-    func start() {
-        // Invalidate any existing timer to prevent duplicates.
+    func start(simulateFatigue: Bool) {
+        self.simulateFatigue = simulateFatigue
         stop()
-        
-        // Create a new timer that fires every 0.1 seconds.
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
-            self?.generateNewDataPoint()
+        // Generate features every 2 seconds to match the model's window
+        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] _ in
+            self?.generateAndPublishFeatures()
         }
     }
     
-    /// Stops generating data.
     func stop() {
         timer?.invalidate()
         timer = nil
     }
     
-    private func generateNewDataPoint() {
-        // Create a small random change to simulate a wandering signal.
-        let change = Double.random(in: -0.05...0.05)
-        currentValue += change
+    private func generateAndPublishFeatures() {
+        let targetMean = simulateFatigue ? fatiguedTargetMean : awakeTargetMean
+        let targetStd = simulateFatigue ? fatiguedTargetStd : awakeTargetStd
         
-        // Clamp the value between 0 and 1 to keep it within a range.
-        currentValue = max(0.0, min(1.0, currentValue))
+        let noise = Double.random(in: 0.95...1.05)
+        let features: [String: Double] = [
+            "Poz_mean": targetMean * noise,
+            "Poz_std": targetStd * noise,
+            "Poz_max": targetMean + (2 * targetStd * noise),
+            "Poz_min": targetMean - (2 * targetStd * noise)
+        ]
         
-        // Add a small "drift" to make the signal slowly move up or down.
-        currentValue += 0.001
-        if currentValue > 1.0 { currentValue = 0.0 }
-        
-        // Publish the new value.
-        eegData = currentValue
+        // Publish the full feature dictionary for the model
+        self.eegFeatures = features
+        // Also publish the mean value for the chart to display
+        self.eegChartValue = features["Poz_mean"] ?? 0.0
     }
 }

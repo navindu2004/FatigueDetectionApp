@@ -1,0 +1,54 @@
+{
+  "Inputs" : {
+    "C3_min" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "P3_std" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "Cz_std" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "C3_std" : {
+      "MLFeatureShortDescription" : "12-dim vector in exact training feature order."
+    },
+    "ECG_max" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "F3_max" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "P4_std" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "Poz_min" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "C3_max" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "P3_min" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "HR_mean" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "ECG_std" : {
+      "MLFeatureShortDescription" : "--"
+    }
+  },
+  "Outputs" : {
+    "FatigueStateProbs" : {
+      "MLFeatureShortDescription" : "Class probabilities."
+    },
+    "FatigueState" : {
+      "MLFeatureShortDescription" : "Predicted class (0=Alert, 1=Fatigued)."
+    }
+  },
+  "TrainingInputs" : {
+
+  },
+  "States" : {
+
+  }
+}

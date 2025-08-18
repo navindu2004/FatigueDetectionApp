@@ -10,6 +10,8 @@
 		EE739FEE2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EE739FCE2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EE739FFB2E2EAA740094E4FE /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */; };
 		EE739FFD2E2EAA870094E4FE /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE739FFC2E2EAA870094E4FE /* WatchConnectivity.framework */; };
+		EE8F704A2E4F66DF004F07D6 /* FatigueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F70492E4F66DF004F07D6 /* FatigueEvent.swift */; };
+		EE8F704B2E4F66DF004F07D6 /* FatigueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F70492E4F66DF004F07D6 /* FatigueEvent.swift */; };
 		EEA64B532E4C822800486716 /* ECGHealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */; };
 		EEA64B652E4CA18900486716 /* ECGHealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */; };
 		EEA64B672E4CCEAE00486716 /* FatigueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA64B662E4CCEAE00486716 /* FatigueState.swift */; };
@@ -77,6 +79,7 @@
 		EE739FE42E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FatigueDetectorWatchApp Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		EE739FFC2E2EAA870094E4FE /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS11.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		EE8F70492E4F66DF004F07D6 /* FatigueEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatigueEvent.swift; sourceTree = "<group>"; };
 		EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGHealthKitManager.swift; sourceTree = "<group>"; };
 		EEA64B662E4CCEAE00486716 /* FatigueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatigueState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,9 +87,17 @@
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		EE739FBE2E2EA4990094E4FE /* Exceptions for "FatigueDetector" folder in "FatigueDetector" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			attributesByRelativePath = {
+				FatigueModelLEAN.mlpackage = (project_codegen, );
+			};
 			membershipExceptions = (
+				FatigueDetector.mlmodel,
 				Info.plist,
 			);
+			platformFiltersByRelativePath = {
+				FatigueClassifier.swift = (ios, );
+				lean_feature_stats.json = (ios, );
+			};
 			target = EE739F9A2E2EA4970094E4FE /* FatigueDetector */;
 		};
 		EE73A01E2E2EC4A50094E4FE /* Exceptions for "FatigueDetectorWatchApp Watch App" folder in "FatigueDetectorWatchApp Watch App" target */ = {
@@ -96,10 +107,13 @@
 			);
 			target = EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */;
 		};
-		EEA64B6E2E4CEEEB00486716 /* Exceptions for "FatigueDetector" folder in "FatigueDetectorWatchApp Watch App" target */ = {
+		EE8F70542E534D59004F07D6 /* Exceptions for "FatigueDetector" folder in "FatigueDetectorWatchApp Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			attributesByRelativePath = {
+				FatigueModelLEAN.mlpackage = (project_codegen, );
+			};
 			membershipExceptions = (
-				WorkoutManager.swift,
+				FatigueModelLEAN.mlpackage,
 			);
 			target = EE739FCD2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App */;
 		};
@@ -110,7 +124,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				EE739FBE2E2EA4990094E4FE /* Exceptions for "FatigueDetector" folder in "FatigueDetector" target */,
-				EEA64B6E2E4CEEEB00486716 /* Exceptions for "FatigueDetector" folder in "FatigueDetectorWatchApp Watch App" target */,
+				EE8F70542E534D59004F07D6 /* Exceptions for "FatigueDetector" folder in "FatigueDetectorWatchApp Watch App" target */,
 			);
 			path = FatigueDetector;
 			sourceTree = "<group>";
@@ -235,6 +249,7 @@
 			children = (
 				EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */,
 				EEA64B662E4CCEAE00486716 /* FatigueState.swift */,
+				EE8F70492E4F66DF004F07D6 /* FatigueEvent.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -488,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8F704A2E4F66DF004F07D6 /* FatigueEvent.swift in Sources */,
 				EEA64B652E4CA18900486716 /* ECGHealthKitManager.swift in Sources */,
 				EEA64B682E4CCEAE00486716 /* FatigueState.swift in Sources */,
 			);
@@ -513,6 +529,7 @@
 			files = (
 				EEA64B532E4C822800486716 /* ECGHealthKitManager.swift in Sources */,
 				EEA64B672E4CCEAE00486716 /* FatigueState.swift in Sources */,
+				EE8F704B2E4F66DF004F07D6 /* FatigueEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

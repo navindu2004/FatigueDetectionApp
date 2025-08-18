@@ -1,0 +1,10 @@
+{
+  "MLModelVersionStringKey" : "--",
+  "MLModelDescriptionKey" : "Lean 12-feature XGBoost fatigue classifier (EEG + ECG).",
+  "MLModelCreatorDefinedKey" : {
+    "com.github.apple.coremltools.version" : "8.3.0",
+    "com.github.apple.coremltools.source" : "xgboost==3.0.4"
+  },
+  "MLModelAuthorKey" : "Navindu Premaratne",
+  "MLModelLicenseKey" : "--"
+}

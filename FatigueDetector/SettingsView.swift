@@ -1,39 +1,29 @@
 import SwiftUI
 
 struct SettingsView: View {
-    // We create an instance of the manager to use here.
-    private let ecgManager = ECGHealthKitManager()
-    @State private var authorizationStatus = "Unknown"
+    // Connect to the shared ViewModel to access the simulation toggle
+    @EnvironmentObject var viewModel: DashboardViewModel
 
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Permissions")) {
-                    Button("Request HealthKit ECG Permission") {
-                        requestPermission()
-                    }
-                    Text("Status: \(authorizationStatus)")
+                Section(header: Text("Demonstration")) {
+                    // This toggle directly controls the isFatigueSimulationActive
+                    // property in our shared DashboardViewModel.
+                    Toggle("Simulate Fatigue", isOn: $viewModel.isFatigueSimulationActive)
+                    Text("When enabled, the next monitoring session will use simulated 'fatigued' ECG and EEG data patterns.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
             }
             .navigationTitle("Settings")
         }
     }
-    
-    private func requestPermission() {
-        print("Requesting HealthKit permission from iPhone app...")
-        ecgManager.requestAuthorization { success in
-            if success {
-                print("✅ HealthKit permission granted via iPhone.")
-                self.authorizationStatus = "Granted"
-            } else {
-                print("❌ HealthKit permission denied via iPhone.")
-                self.authorizationStatus = "Denied"
-            }
-        }
-    }
 }
 
 #Preview {
+    // Provide a sample viewModel for the preview to work
     SettingsView()
+        .environmentObject(DashboardViewModel())
         .preferredColorScheme(.dark)
 }

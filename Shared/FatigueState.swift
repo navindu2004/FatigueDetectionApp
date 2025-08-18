@@ -1,24 +1,22 @@
 import Foundation
 import SwiftUI
 
-enum FatigueState {
+enum FatigueState: String, Codable, CaseIterable {
     case awake
-    case drowsy
     case fatigued
-    
+
     var displayText: String {
         switch self {
-        case .awake: "Awake"
-        case .drowsy: "Drowsy"
-        case .fatigued: "Fatigued"
+        case .awake:    return "Awake"
+        case .fatigued: return "Fatigued"
         }
     }
-    
+
+    /// Fallback color if you don't want probability-based coloring.
     var displayColor: Color {
         switch self {
-        case .awake: .green
-        case .drowsy: .yellow
-        case .fatigued: .red
+        case .awake:    return .green
+        case .fatigued: return .red
         }
     }
 }

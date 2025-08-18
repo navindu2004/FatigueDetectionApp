@@ -1,0 +1,24 @@
+{
+    "fileFormatVersion": "1.0.0",
+    "itemInfoEntries": {
+        "04D2F953-16F3-4B5B-9122-86EE54D6647C": {
+            "author": "com.apple.CoreML",
+            "description": "External Metadata Overlay",
+            "name": "Metadata.json",
+            "path": "com.apple.CoreML/Metadata.json"
+        },
+        "BC8AD1F6-3265-47E0-8919-62E6E3DAB609": {
+            "author": "com.apple.CoreML",
+            "description": "External FeatureDescription Overlay",
+            "name": "FeatureDescriptions.json",
+            "path": "com.apple.CoreML/FeatureDescriptions.json"
+        },
+        "E62EAE9B-F388-4FAF-B9FF-98F0B27F5B62": {
+            "author": "com.apple.CoreML",
+            "description": "CoreML Model Specification",
+            "name": "FatigueModelLEAN.mlmodel",
+            "path": "com.apple.CoreML/FatigueModelLEAN.mlmodel"
+        }
+    },
+    "rootModelIdentifier": "E62EAE9B-F388-4FAF-B9FF-98F0B27F5B62"
+}

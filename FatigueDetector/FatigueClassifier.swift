@@ -1,93 +1,171 @@
-//
-//  FatigueClassifier.swift
-//  FatigueDetector
-//
-//  Created by Navindu Premaratne on 2025-08-13.
-//
-
 import Foundation
 import CoreML
+import SwiftUI
 
-class FatigueClassifier {
-    
-    // The model property can be non-optional now, as we handle errors in the init.
-    private let model: FatigueDetector
+final class FatigueClassifier {
+
+    // MARK: - Model + config
+    private let model: FatigueModelLEAN
+    private let decisionThreshold: Double = 0.50
+    private let fatiguedClassIndex = 0
+
+    private let stats: [String: (mean: Double, std: Double)]
+    private let featureOrder = [
+        "C3_std","ECG_std","C3_max","C3_min","Cz_std","P3_std",
+        "P4_std","P3_min","Poz_min","F3_max","ECG_max","HR_mean"
+    ]
+
+    // MARK: - Init
     
     init() {
-        // Use the modern, throwing initializer inside our own initializer.
-        // If the model can't be loaded, the app will crash on launch, which is
-        // appropriate because the app is unusable without its core model.
+        print("🧪 FatigueClassifier INIT — build marker v3 — bundle:", Bundle.main.bundleIdentifier ?? "nil")
         do {
-            let configuration = MLModelConfiguration()
-            self.model = try FatigueDetector(configuration: configuration)
+            let cfg = MLModelConfiguration()
+            self.model = try FatigueModelLEAN(configuration: cfg)
         } catch {
-            fatalError("FATAL ERROR: Failed to load FatigueDetector model: \(error)")
+            fatalError("FATAL: Failed to load FatigueModelLEAN: \(error)")
+        }
+
+        #if os(iOS)
+        self.stats = FatigueClassifier.loadStats()
+        #else
+        self.stats = [:]
+        #endif
+    }
+
+    // MARK: - Public API (state only)
+    func predict(features raw: [String: Double]) -> FatigueState {
+        let (state, _) = predictWithProbability(features: raw)
+        return state
+    }
+
+    // MARK: - Public API (state + probability)
+    func predictWithProbability(features raw: [String: Double]) -> (FatigueState, Double) {
+        print("🧪 ENTER predictWithProbability — build marker v3")
+
+        // ✅ RE-ENABLE z-scoring using stats loaded from JSON
+        func z(_ name: String, _ x: Double) -> Double {
+            #if os(iOS)
+            if let s = self.stats[name] {
+                // (x - mean) / std
+                return (x - s.mean) / max(s.std, 1e-6)
+            }
+            #endif
+            return x   // fallback if stats missing
+        }
+
+
+
+        let C3_std  = z("C3_std",  raw["C3_std"]  ?? 0)
+        let ECG_std = z("ECG_std", raw["ECG_std"] ?? 0)
+        let C3_max  = z("C3_max",  raw["C3_max"]  ?? 0)
+        let C3_min  = z("C3_min",  raw["C3_min"]  ?? 0)
+        let Cz_std  = z("Cz_std",  raw["Cz_std"]  ?? 0)
+        let P3_std  = z("P3_std",  raw["P3_std"]  ?? 0)
+        let P4_std  = z("P4_std",  raw["P4_std"]  ?? 0)
+        let P3_min  = z("P3_min",  raw["P3_min"]  ?? 0)
+        let Poz_min = z("Poz_min", raw["Poz_min"] ?? 0)
+        let F3_max  = z("F3_max",  raw["F3_max"]  ?? 0)
+        let ECG_max = z("ECG_max", raw["ECG_max"] ?? 0)
+        let HR_mean = z("HR_mean", raw["HR_mean"] ?? 0)
+
+        do {
+            let input = try FatigueModelLEANInput(
+                C3_std: C3_std, ECG_std: ECG_std, C3_max: C3_max, C3_min: C3_min,
+                Cz_std: Cz_std, P3_std: P3_std, P4_std: P4_std, P3_min: P3_min,
+                Poz_min: Poz_min, F3_max: F3_max, ECG_max: ECG_max, HR_mean: HR_mean
+            )
+
+            let out = try model.prediction(input: input)
+
+            // 👇 NEW: always dump outputs once to verify what's in this target’s model
+            FatigueClassifier.dumpAllOutputs(out)
+
+            // Extract p(fatigued) if present
+            let p1 = Self.extractP(from: out, classIndex: fatiguedClassIndex)
+
+            // 👇 FIX: read the label robustly (works regardless of property name/case)
+            // Read label
+            let label = out.FatigueState
+            let stateFromLabel: FatigueState =
+                (Int(truncatingIfNeeded: label) == fatiguedClassIndex) ? .fatigued : .awake
+
+
+            // If no probs in this model, synthesize a UI-friendly value (optional)
+            print(String(format: "🧪 p(fatigued) for class %d = %.6f", fatiguedClassIndex, p1))
+
+            let finalState: FatigueState
+            if p1 >= 0.0 {                       // we successfully read a probability
+                finalState = (p1 >= decisionThreshold) ? .fatigued : .awake
+            } else {
+                finalState = stateFromLabel      // fall back to the label if probs absent
+            }
+
+            return (finalState, max(0.0, min(1.0, p1)))
+
+        } catch {
+            print("❌ prediction error: \(error)")
+            return (.awake, 0.0)
         }
     }
-    
-    /// Predicts the fatigue state from a dictionary of features.
-    func predict(features: [String: Double]) -> FatigueState {
-        do {
-            // This 'prediction' function is generated by Core ML and can throw an error.
-            let prediction = try model.prediction(
-                ECG_mean: features["ECG_mean"] ?? 0.0,
-                ECG_std: features["ECG_std"] ?? 0.0,
-                ECG_max: features["ECG_max"] ?? 0.0,
-                ECG_min: features["ECG_min"] ?? 0.0,
-                Poz_mean: features["Poz_mean"] ?? 0.0,
-                Poz_std: features["Poz_std"] ?? 0.0,
-                Poz_max: features["Poz_max"] ?? 0.0,
-                Poz_min: features["Poz_min"] ?? 0.0,
-                Fz_mean: features["Fz_mean"] ?? 0.0,
-                Fz_std: features["Fz_std"] ?? 0.0,
-                Fz_max: features["Fz_max"] ?? 0.0,
-                Fz_min: features["Fz_min"] ?? 0.0,
-                Cz_mean: features["Cz_mean"] ?? 0.0,
-                Cz_std: features["Cz_std"] ?? 0.0,
-                Cz_max: features["Cz_max"] ?? 0.0,
-                Cz_min: features["Cz_min"] ?? 0.0,
-                C3_mean: features["C3_mean"] ?? 0.0,
-                C3_std: features["C3_std"] ?? 0.0,
-                C3_max: features["C3_max"] ?? 0.0,
-                C3_min: features["C3_min"] ?? 0.0,
-                C4_mean: features["C4_mean"] ?? 0.0,
-                C4_std: features["C4_std"] ?? 0.0,
-                C4_max: features["C4_max"] ?? 0.0,
-                C4_min: features["C4_min"] ?? 0.0,
-                F3_mean: features["F3_mean"] ?? 0.0,
-                F3_std: features["F3_std"] ?? 0.0,
-                F3_max: features["F3_max"] ?? 0.0,
-                F3_min: features["F3_min"] ?? 0.0,
-                F4_mean: features["F4_mean"] ?? 0.0,
-                F4_std: features["F4_std"] ?? 0.0,
-                F4_max: features["F4_max"] ?? 0.0,
-                F4_min: features["F4_min"] ?? 0.0,
-                P3_mean: features["P3_mean"] ?? 0.0,
-                P3_std: features["P3_std"] ?? 0.0,
-                P3_max: features["P3_max"] ?? 0.0,
-                P3_min: features["P3_min"] ?? 0.0,
-                P4_mean: features["P4_mean"] ?? 0.0,
-                P4_std: features["P4_std"] ?? 0.0,
-                P4_max: features["P4_max"] ?? 0.0,
-                P4_min: features["P4_min"] ?? 0.0,
-                HR_mean: features["HR_mean"] ?? 0.0,
-                HR_std: features["HR_std"] ?? 0.0,
-                HR_max: features["HR_max"] ?? 0.0,
-                HR_min: features["HR_min"] ?? 0.0
-            )
-            
-            // --- THIS IS THE FINAL FIX ---
-            // We use the 'target' property that you discovered from the output.
-            let predictedLabel = prediction.target
-            print("Model predicted label: \(predictedLabel)")
-            
-            // The output is an Int64. 0 = Awake, 1 = Fatigued.
-            return predictedLabel == 1 ? .fatigued : .awake
-            
-        } catch {
-            print("Error: Failed to get a prediction from the model: \(error)")
-            // Return a safe default if prediction fails for any reason.
-            return .awake
+
+    // MARK: - Helpers
+
+    /// Reads `Fatiguestateprobs` (or `FatigueStateProbs`) from the MLFeatureProvider
+    /// and returns p(class=1) regardless of key type (Int/Int64/NSNumber/String).
+    private static func extractP(from out: FatigueModelLEANOutput,
+                                 classIndex: Int) -> Double {
+        let fv = out.featureValue(for: "Fatiguestateprobs")
+              ?? out.featureValue(for: "FatigueStateProbs")
+        guard let dict = fv?.dictionaryValue else { return -1.0 }
+
+        func toDouble(_ v: Any) -> Double? {
+            if let n = v as? NSNumber { return n.doubleValue }
+            if let s = v as? String { return Double(s) }
+            if let d = v as? Double { return d }
+            return nil
+        }
+
+        // exact class index (0 or 1)
+        let k = classIndex
+        if let v = dict[k], let d = toDouble(v) { return d }
+
+        // fallback for string keys "0"/"1"
+        if let v = dict["\(k)"], let d = toDouble(v) { return d }
+
+        // last resort: if we only found the other class, invert
+        let other = 1 - classIndex
+        if let v = dict[other], let d = toDouble(v) { return 1.0 - d }
+
+        return -1.0
+    }
+
+
+    #if os(iOS)
+    private static func loadStats() -> [String:(mean: Double, std: Double)] {
+        guard let url = Bundle.main.url(forResource: "lean_feature_stats", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String:[String:Double]] else {
+            return [:]
+        }
+        var out: [String:(Double,Double)] = [:]
+        for (k,v) in json {
+            let mu = v["mean"] ?? 0.0
+            let sd = max(v["std"] ?? 1.0, 1e-6)
+            out[k] = (mu, sd)
+        }
+        return out
+    }
+    #endif
+
+    private static func dumpAllOutputs(_ out: FatigueModelLEANOutput) {
+        print("🔎 Output feature names:", out.featureNames)
+        for name in out.featureNames {
+            if let fv = out.featureValue(for: name) {
+                print("🔎 Output[\(name)]:", fv)
+            } else {
+                print("🔎 Output[\(name)]: <nil>")
+            }
         }
     }
 }

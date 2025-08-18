@@ -1,24 +1,22 @@
-//
-//  FatigueDashboardView.swift
-//  FatigueDetector
-//
-//  Created by Navindu Premaratne on 2025-08-12.
-//
-
 import SwiftUI
 import Charts
 
+// This struct defines the data points for our new charts.
+struct ChartDataPoint: Identifiable {
+    let id = UUID()
+    let timestamp: Date
+    let value: Double
+}
+
+// This is the main view for the first tab.
 struct FatigueDashboardView: View {
-    // --- Connect to the Shared ViewModel ---
-    // @EnvironmentObject tells this view to find the DashboardViewModel
-    // that was placed into the environment by the FatigueDetectorApp.
     @EnvironmentObject var viewModel: DashboardViewModel
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
-                    // --- Top Status Indicators ---
+                    // Top Status Indicators
                     HStack(spacing: 16) {
                         StatusIndicatorView(
                             title: "WATCH CONNECTION",
@@ -33,35 +31,37 @@ struct FatigueDashboardView: View {
                         )
                     }
                     
-                    // --- Current Fatigue Level ---
+                    // Current Fatigue Level
                     CardView {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("CURRENT FATIGUE LEVEL")
                                 .font(.caption).foregroundColor(.secondary)
                             HStack {
                                 Circle()
-                                    .fill(viewModel.fatigueLevel.displayColor)
+                                    .fill(viewModel.fatigueTrafficColor)   // <— changed
                                     .frame(width: 10, height: 10)
                                 Text(viewModel.fatigueLevel.displayText)
                                     .font(.title3).fontWeight(.semibold)
-                                    .foregroundColor(viewModel.fatigueLevel.displayColor)
+                                    .foregroundColor(viewModel.fatigueTrafficColor) // <— changed
                             }
                         }
                     }
                     
-                    // --- Charts and System Details ---
-                    ChartCardView(
+                    // ECG Data Chart
+                    ModernChartCardView(
                         title: "ECG Data (from Watch)",
-                        data: viewModel.ecgDataPoints,
+                        data: viewModel.ecgChartData,
                         lineColor: .red
                     )
                     
-                    ChartCardView(
+                    // EEG Data Chart
+                    ModernChartCardView(
                         title: "Simulated EEG Data (from Wheel)",
-                        data: viewModel.eegDataPoints,
+                        data: viewModel.eegChartData,
                         lineColor: .blue
                     )
                     
+                    // System Details
                     CardView {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("SYSTEM DETAILS").font(.caption).foregroundColor(.secondary)
@@ -78,9 +78,9 @@ struct FatigueDashboardView: View {
     }
 }
 
+// --- ALL REUSABLE SUB-VIEWS ARE DEFINED BELOW ---
 
-// --- Reusable Sub-views (These remain the same) ---
-
+// A reusable view for the card-like containers.
 struct CardView<Content: View>: View {
     let content: Content
     init(@ViewBuilder content: () -> Content) { self.content = content() }
@@ -95,6 +95,7 @@ struct CardView<Content: View>: View {
     }
 }
 
+// A reusable view for the top status indicators.
 struct StatusIndicatorView: View {
     let title: String
     let statusText: String
@@ -117,63 +118,49 @@ struct StatusIndicatorView: View {
     }
 }
 
-struct ChartCardView: View {
+// A reusable view for the modern chart cards.
+struct ModernChartCardView: View {
     let title: String
-    let data: [Double]
+    let data: [ChartDataPoint]
     let lineColor: Color
+
     var body: some View {
         CardView {
             VStack(alignment: .leading) {
                 Text(title)
                     .font(.caption)
                     .foregroundColor(.secondary)
+                
                 if data.isEmpty {
                     Text("Ready to Monitor")
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity, minHeight: 100, alignment: .center)
                 } else {
-                    LineChartView(data: data, lineColor: lineColor)
-                        .frame(height: 100)
-                }
-            }
-        }
-    }
-}
-
-struct LineChartView: View {
-    let data: [Double]
-    let lineColor: Color
-    
-    private var normalizedData: [CGFloat] {
-        let maxVal = data.max() ?? 1.0
-        let minVal = data.min() ?? 0.0
-        let range = (maxVal - minVal) > 0 ? (maxVal - minVal) : 1.0
-        return data.map { CGFloat(($0 - minVal) / range) }
-    }
-    
-    var body: some View {
-        GeometryReader { geometry in
-            Path { path in
-                guard data.count > 1 else { return }
-                for index in data.indices {
-                    let xPosition = geometry.size.width * CGFloat(index) / CGFloat(data.count - 1)
-                    let yPosition = (1 - normalizedData[index]) * geometry.size.height
-                    
-                    if index == 0 {
-                        path.move(to: CGPoint(x: xPosition, y: yPosition))
-                    } else {
-                        path.addLine(to: CGPoint(x: xPosition, y: yPosition))
+                    Chart(data) { point in
+                        LineMark(
+                            x: .value("Time", point.timestamp),
+                            y: .value("Value", point.value)
+                        )
+                        .foregroundStyle(lineColor)
+                        .interpolationMethod(.catmullRom)
                     }
+                    .chartXAxis {
+                        AxisMarks(values: .automatic(desiredCount: 3)) { value in
+                            AxisGridLine()
+                            AxisValueLabel(format: .dateTime.hour().minute().second())
+                        }
+                    }
+                    .chartYAxis(.hidden)
+                    .frame(height: 100)
                 }
             }
-            .stroke(lineColor, lineWidth: 2)
         }
     }
 }
 
+// --- Preview Provider ---
 #Preview {
-    // For the preview to work correctly with an @EnvironmentObject,
-    // you must provide a sample instance for the preview to use.
+    // We need to provide a sample ViewModel for the preview to work.
     FatigueDashboardView()
         .environmentObject(DashboardViewModel())
         .preferredColorScheme(.dark)
