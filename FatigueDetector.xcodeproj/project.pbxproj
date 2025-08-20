@@ -96,6 +96,7 @@
 			);
 			platformFiltersByRelativePath = {
 				FatigueClassifier.swift = (ios, );
+				PreDrive/PreDriveService.swift = (ios, );
 				lean_feature_stats.json = (ios, );
 			};
 			target = EE739F9A2E2EA4970094E4FE /* FatigueDetector */;
@@ -590,8 +591,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FatigueDetector/Info.plist;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to ECG data to monitor your fatigue levels.\n";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to read ECG signals to monitor fatigue in real time.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app uses your ECG data to monitor driver fatigue levels in real time";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to read ECG signals to monitor fatigue in real time";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -623,8 +624,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FatigueDetector/Info.plist;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to ECG data to monitor your fatigue levels.\n";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to read ECG signals to monitor fatigue in real time.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app uses your ECG data to monitor driver fatigue levels in real time";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to read ECG signals to monitor fatigue in real time";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

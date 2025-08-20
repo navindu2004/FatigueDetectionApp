@@ -5,7 +5,7 @@ import SwiftData
 struct FatigueDetectorApp: App {
     @StateObject private var dashboardViewModel = DashboardViewModel()
 
-    // SwiftData container (no custom URL on this SDK)
+    // SwiftData container (unchanged)
     private let modelContainer: ModelContainer = {
         let schema = Schema([FatigueEvent.self])
 
@@ -18,7 +18,6 @@ struct FatigueDetectorApp: App {
             }
         }
 
-        // Use the initializer supported by your SDK
         let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
@@ -43,14 +42,28 @@ struct MainTabView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var viewModel: DashboardViewModel
 
+    // 👇 Configure the Pre‑Drive service with your backend base URL (Option A)
+    private let preDriveService = PreDriveService(
+        baseURL: URL(string: PreDriveConfig.baseURL)!
+    )
+
     var body: some View {
         TabView {
+            // Dashboard (unchanged)
             FatigueDashboardView()
                 .tabItem { Label("Dashboard", systemImage: "chart.bar.xaxis") }
 
+            // NEW: Pre‑Drive tab
+            NavigationStack {
+                PreDriveView(service: preDriveService)
+            }
+            .tabItem { Label("Pre-Drive", systemImage: "steeringwheel") }
+
+            // Reports (unchanged)
             ReportsView()
                 .tabItem { Label("Reports", systemImage: "doc.text.fill") }
 
+            // Settings (unchanged)
             SettingsView()
                 .tabItem { Label("Settings", systemImage: "gearshape.fill") }
         }
