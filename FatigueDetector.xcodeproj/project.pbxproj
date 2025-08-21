@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE06A9642E570987003DF56E /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE06A9632E570987003DF56E /* HideKeyboard.swift */; };
 		EE739FEE2E2EA57D0094E4FE /* FatigueDetectorWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EE739FCE2E2EA57B0094E4FE /* FatigueDetectorWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EE739FFB2E2EAA740094E4FE /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE739FFA2E2EAA740094E4FE /* WatchConnectivity.framework */; };
 		EE739FFD2E2EAA870094E4FE /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE739FFC2E2EAA870094E4FE /* WatchConnectivity.framework */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EE06A9632E570987003DF56E /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		EE739F9B2E2EA4970094E4FE /* FatigueDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FatigueDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE739FAC2E2EA4990094E4FE /* FatigueDetectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FatigueDetectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE739FB62E2EA4990094E4FE /* FatigueDetectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FatigueDetectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +253,7 @@
 				EEA64B442E4C822800486716 /* ECGHealthKitManager.swift */,
 				EEA64B662E4CCEAE00486716 /* FatigueState.swift */,
 				EE8F70492E4F66DF004F07D6 /* FatigueEvent.swift */,
+				EE06A9632E570987003DF56E /* HideKeyboard.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE06A9642E570987003DF56E /* HideKeyboard.swift in Sources */,
 				EE8F704A2E4F66DF004F07D6 /* FatigueEvent.swift in Sources */,
 				EEA64B652E4CA18900486716 /* ECGHealthKitManager.swift in Sources */,
 				EEA64B682E4CCEAE00486716 /* FatigueState.swift in Sources */,

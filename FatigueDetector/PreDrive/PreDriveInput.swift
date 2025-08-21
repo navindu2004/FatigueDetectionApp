@@ -7,17 +7,13 @@
 
 import Foundation
 
+
 struct PreDriveInput: Codable, Sendable {
-    let sleepHours: Double
-    let tripDurationHours: Double
-    let timeOfDay: String          // "Morning", "Afternoon", "Evening", "Night"
-    // Optional summaries (used by prompt engineering server-side)
-    let totalDrowsy: Int?
-    let totalFatigued: Int?
-    // Optional health metrics
-    let age: Int?
-    let heightCm: Int?
-    let weightKg: Int?
+    let sleep: Double
+    let duration: Double
+    let timeOfDay: String
+    let healthData: HealthData
+    let fatigueHistory: [FatigueLog]   // recent logs or summary items
 }
 
 struct HealthData: Codable, Sendable {
@@ -27,7 +23,8 @@ struct HealthData: Codable, Sendable {
 }
 
 struct FatigueLog: Codable, Sendable {
-    let status: String     // e.g., "Awake", "Drowsy", "Fatigued"
-    let score: Int
+    let status: String     // "Awake" | "Drowsy" | "Fatigued"
+    let score: Int         // 0|1|2 if you want
     let timestamp: Date
 }
+

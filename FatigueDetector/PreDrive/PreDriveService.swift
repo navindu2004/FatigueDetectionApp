@@ -1,7 +1,4 @@
-//
-//  PreDriveService.swift
-//  FatigueDetector
-//
+// FatigueDetector/FatigueDetector/PreDrive/PreDriveService.swift
 
 import Foundation
 
@@ -53,7 +50,36 @@ final class PreDriveService: @unchecked Sendable, PreDriveServicing {
         self.init(baseURL: url)
     }
 
-    // POST {baseURL}/predrive/analyze
+    // MARK: - Helpers (sanitize accidental ```json blocks)
+    private func extractJSONBytes(from string: String) -> Data? {
+        // If it's already valid JSON, return it.
+        if let data = string.data(using: .utf8),
+           (try? JSONSerialization.jsonObject(with: data)) != nil {
+            return data
+        }
+        // Try fenced ```json … ``` or ``` … ```
+        let patterns = [
+            #"```json\s*(\{[\s\S]*\})\s*```"#,
+            #"```\s*(\{[\s\S]*\})\s*```"#
+        ]
+        for p in patterns {
+            if let r = try? NSRegularExpression(pattern: p, options: .caseInsensitive) {
+                let ns = string as NSString
+                if let m = r.firstMatch(in: string, range: NSRange(location: 0, length: ns.length)),
+                   m.numberOfRanges >= 2 {
+                    let sub = ns.substring(with: m.range(at: 1))
+                    if let data = sub.data(using: .utf8),
+                       (try? JSONSerialization.jsonObject(with: data)) != nil {
+                        return data
+                    }
+                }
+            }
+        }
+        return nil
+    }
+
+    // MARK: - API
+    /// POST {baseURL}/predrive/analyze
     func analyze(input: PreDriveInput) async throws -> RiskAssessment {
         let url = baseURL.appendingPathComponent("predrive/analyze")
         var request = URLRequest(url: url)
@@ -68,19 +94,28 @@ final class PreDriveService: @unchecked Sendable, PreDriveServicing {
         guard let http = response as? HTTPURLResponse else {
             throw PreDriveServiceError.network("No HTTPURLResponse.")
         }
+
         guard (200...299).contains(http.statusCode) else {
-            // try to surface server text if any
             let body = String(data: data, encoding: .utf8) ?? ""
-            throw PreDriveServiceError.invalidStatus(http.statusCode == 200 ? 0 : http.statusCode)
+            throw PreDriveServiceError.server("HTTP \(http.statusCode). Body: \(body)")
         }
 
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        do {
-            return try decoder.decode(RiskAssessment.self, from: data)
-        } catch {
-            let fallback = String(data: data, encoding: .utf8) ?? "Unrecognized response"
-            throw PreDriveServiceError.decoding(fallback)
+
+        // First attempt: decode as-is
+        if let direct = try? decoder.decode(RiskAssessment.self, from: data) {
+            return direct
         }
+
+        // Fallback: try to salvage JSON from a markdown code block
+        if let text = String(data: data, encoding: .utf8),
+           let cleaned = extractJSONBytes(from: text),
+           let parsed = try? decoder.decode(RiskAssessment.self, from: cleaned) {
+            return parsed
+        }
+
+        let fallback = String(data: data, encoding: .utf8) ?? "Unrecognized response"
+        throw PreDriveServiceError.decoding(fallback)
     }
 }
