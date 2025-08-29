@@ -31,9 +31,6 @@ class WatchViewModel: ObservableObject, WatchSessionManagerDelegate {
     
     // MARK: - SessionManagerDelegate
     func sessionDidReceiveMessage(message: [String: Any]) {
-        
-        // --- THIS IS THE NEW LOGIC ---
-        // First, check if the message is a log message and print it.
         if let logMessage = message["log"] as? String {
             print(logMessage)
         }

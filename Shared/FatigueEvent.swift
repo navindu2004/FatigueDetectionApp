@@ -4,11 +4,18 @@ import SwiftData
 @Model
 final class FatigueEvent {
     var timestamp: Date
-    // We can now store the enum directly, SwiftData will handle it.
     var state: FatigueState
     
-    init(timestamp: Date, state: FatigueState) {
+    // --- ADD THESE NEW PROPERTIES ---
+    // These will store the raw data from the 2-second window that
+    // triggered this event. SwiftData can store arrays of simple types.
+    var ecgSnapshot: [Double]
+    var eegSnapshot: [Double]
+    
+    init(timestamp: Date, state: FatigueState, ecgSnapshot: [Double], eegSnapshot: [Double]) {
         self.timestamp = timestamp
         self.state = state
+        self.ecgSnapshot = ecgSnapshot
+        self.eegSnapshot = eegSnapshot
     }
 }

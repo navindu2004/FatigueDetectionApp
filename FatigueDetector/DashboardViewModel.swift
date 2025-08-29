@@ -47,6 +47,9 @@ class DashboardViewModel: ObservableObject, SessionManagerDelegate {
     private var consecutiveOn = 0
     private var consecutiveOff = 0
     private var fatigueEpisodeActive = false
+    private var ecgBuffer: [Double] = []
+    private var eegBuffer: [Double] = []
+    private let requiredSamples = 100
     
     // Alert cooldown
     private var lastAlertDate: Date?
@@ -281,7 +284,15 @@ class DashboardViewModel: ObservableObject, SessionManagerDelegate {
                     if self.consecutiveOn >= self.consecOnNeeded {
                         self.fatigueEpisodeActive = true
                         self.consecutiveOn = 0
-                        self.beginEpisode()
+                        
+                        // --- THIS IS THE FIX ---
+                        // We capture the snapshot windows right before we need them
+                        // and pass them to the beginEpisode function.
+                        let ecgSnapshot = Array(self.ecgBuffer.suffix(self.requiredSamples))
+                        let eegSnapshot = Array(self.eegBuffer.suffix(self.requiredSamples))
+                        self.beginEpisode(ecgSnapshot: ecgSnapshot, eegSnapshot: eegSnapshot)
+                        // ----------------------
+                        
                         self.updateEpisodeStats(p: p)
                         self.logToWatch("--- [PHONE LOG] --- I. Episode START → FATIGUED.")
                         
@@ -314,11 +325,12 @@ class DashboardViewModel: ObservableObject, SessionManagerDelegate {
         episodeProbs.removeAll()
     }
     
-    private func beginEpisode() {
-        episodeProbs.removeAll()
-        saveNewEvent(state: .fatigued)
-        logToWatch("--- [PHONE LOG] --- DB: Episode inserted.")
-    }
+    private func beginEpisode(ecgSnapshot: [Double], eegSnapshot: [Double]) {
+            episodeProbs.removeAll()
+            // Pass the snapshots to the save function
+            saveNewEvent(state: .fatigued, ecgSnapshot: ecgSnapshot, eegSnapshot: eegSnapshot)
+            logToWatch("--- [PHONE LOG] --- DB: Episode inserted.")
+        }
     
     private func endEpisodeIfNeeded(reason: String) {
         guard !episodeProbs.isEmpty else { return }
@@ -332,11 +344,17 @@ class DashboardViewModel: ObservableObject, SessionManagerDelegate {
         episodeProbs.append(p)
     }
 
-    private func saveNewEvent(state: FatigueState) {
-        guard let context = modelContext else { return }
-        let newEvent = FatigueEvent(timestamp: Date(), state: state)
-        context.insert(newEvent)
-    }
+    private func saveNewEvent(state: FatigueState, ecgSnapshot: [Double], eegSnapshot: [Double]) {
+            guard let context = modelContext else { return }
+            // We now pass all the required arguments to the initializer
+            let newEvent = FatigueEvent(
+                timestamp: Date(),
+                state: state,
+                ecgSnapshot: ecgSnapshot,
+                eegSnapshot: eegSnapshot
+            )
+            context.insert(newEvent)
+        }
     
     // MARK: - Debugging
     private func logToWatch(_ message: String) {
