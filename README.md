@@ -13,7 +13,7 @@ The system is architected as a dual-app prototype:
 *   An **iOS companion app** that serves as the central processing hub, running a Core ML model for on-device inference.
 *   A **watchOS app** that acts as a data source and an alert interface.
 
-Due to hardware and regional API limitations (specifically, the unavailability of the Apple Watch ECG feature in Sri Lanka), this prototype utilizes high-fidelity simulators for both the ECG and EEG data streams. This approach allows for a complete, end-to-end demonstration of the system's architecture, data pipeline, and real-time feedback loop.
+This prototype utilizes high-fidelity simulators for both the ECG and EEG data streams. This approach allows for a complete, end-to-end demonstration of the system's architecture, data pipeline, and real-time feedback loop.
 
 ### Key Features
 *   **Real-Time Monitoring:** Initiated from the Apple Watch, the system simulates and streams physiological data to the iPhone.
